@@ -7,6 +7,14 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ *
+ * Como dice el dicho : Si no le sabes mejor no le muevas
+ * Si no sabes ingles , mejor no le muevas x2
+ * Me puedes escribir al discord "vikdenshion" para emergencias. Llorar no es una emergencia.
+ *
+ */
+
 public class EncryptionService {
 
     public static byte[] computeVerifier(ParamsEncrypt params, byte[] salt, String username, String password) throws Exception {

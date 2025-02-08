@@ -1,0 +1,174 @@
+.IronButton {
+  font-size: 1.08rem;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'Arial', 'Helvetica', sans-serif;
+  color: #ffffff;
+  text-shadow: 0 0 1px transparent, 0px 1px 2px rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  border: 8px solid transparent;
+  border-bottom-width: 7px;
+  border-top-width: 7px;
+  border-radius: 18px;
+  background: linear-gradient(0deg, #141414 20%, #161616 30%, #1e1e1e 50%, #262626 65%, #292929 80%);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  position: relative;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.75);
+}
+@media (min-width:720px) {
+  .IronButton {
+    font-size: 1.224rem;
+  }
+}
+@media (min-width:1280px) {
+  .IronButton {
+    font-size: 1.44rem;
+  }
+}
+.IronButton::before,
+.IronButton::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.IronButton::before {
+  background: linear-gradient(0deg, #1a1a1a 20%, #1c1c1c 30%, #242424 50%, #2c2c2c 65%, #2f2f2f 80%);
+  transition: 0.3s all 0s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0;
+}
+.IronButton.IronButton--primary {
+  background: linear-gradient(0deg, #4e0000 20%, #550000 30%, #700000 50%, #8d0000 65%, #860000 80%) center repeat;
+}
+.IronButton.IronButton--primary::before {
+  background: linear-gradient(0deg, #600000 20%, #680000 30%, #8f0000 50%, #b40000 65%, #ae0000 80%);
+}
+.IronButton::after {
+  transition: 0.3s all 0s cubic-bezier(0.23, 1, 0.32, 1);
+  border-image-outset: 7px 8px 7px 8px;
+  border-image-width: 16px;
+  border-image-slice: 16 fill;
+  border-image-source: url('/images/0a7fe24fa341af2a2605.png');
+  border-image-repeat: round;
+}
+.IronButton-inner {
+  position: relative;
+  padding: 16px 22px 18px;
+  overflow: hidden; /* Añadido para evitar el desbordamiento */
+}
+@media (min-width:980px) {
+  .IronButton-inner {
+    padding: 18px 30px 20px;
+  }
+}
+.IronButton-inner::before,
+.IronButton-inner::after {
+  content: '';
+  transition: 0.3s all 0s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.IronButton--primary .IronButton-inner::before {
+  border-image-width: 11px 13px;
+  border-image-slice: 11 13 fill;
+  border-image-repeat: round;
+  border-image-outset: 0;
+}
+.IronButton--primary .IronButton-inner::after {
+  background: transparent url('/images/8c774643306416588156.png') top left repeat;
+  background-size: 100px;
+}
+.IronButton-label {
+  transition: 0.3s all 0s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #f7b10a;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 #000000, 1px 0 5px #000000, 0 1px 5px #000000, -1px 0 5px #000000, 0 -1px 5px #000000;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  line-height: 1;
+  white-space: nowrap;
+}
+html:not(.touch) .IronButton:hover {
+  background-color: #ae0000;
+}
+html:not(.touch) .IronButton:hover::before {
+  opacity: 1;
+}
+html:not(.touch) .IronButton:hover::after {
+  filter: brightness(1.1);
+}
+html:not(.touch) .IronButton:hover .IronButton-inner::before {
+  filter: brightness(1.2);
+}
+html:not(.touch) .IronButton:hover .IronButton-label {
+  color: #ffffff;
+}
+html:not(.touch) .IronButton:active::before {
+  transition: 0.1s all 0s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0.3;
+}
+@media (min-width:980px) {
+  html:not(.touch) .IronButton:active .IronButton-label {
+    top: 1px;
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 24px; /* Ajusta el tamaño según sea necesario */
+  height: 24px; /* Ajusta el tamaño según sea necesario */
+  position: relative;
+  margin-right: 8px; /* Ajusta el espacio según sea necesario */
+  vertical-align: middle;
+}
+
+.icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/331c68bdcad4358276eb.png'); /* Reemplaza con la ruta de tu imagen de círculo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%; /* Asegura que el círculo se mantenga redondo */
+  transform: translate(-50%, -50%);
+}
+
+.icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%; /* Ajusta el tamaño según sea necesario */
+  height: 80%; /* Ajusta el tamaño según sea necesario */
+  background-image: url('/images/e13c12f6e502535ab533.jpg'); /* Reemplaza con la ruta de tu imagen de check */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+  background-color: black; /* Fondo negro uniforme */
+  border-radius: 50%; /* Hace que el fondo sea un círculo */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* Ajusta el tamaño según sea necesario */
+}

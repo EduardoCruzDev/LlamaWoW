@@ -3,7 +3,7 @@ package org.llamawow.model;
 import java.math.*;
 
 /**
- * Clase que representa los parámetros utilizados para el cifrado.
+ * Clase para cifrar la informacion sencible lo requiere el emulador trinity core
  */
 public class ParamsEncrypt {
     public final int N_length_bits;       // Longitud de N en bits
@@ -14,14 +14,10 @@ public class ParamsEncrypt {
     public final int passwordMaxLength;    // Longitud máxima de contraseña
 
     /**
-     * Constructor para inicializar los parámetros de cifrado.
      *
-     * @param N_length_bits longitud de N en bits
-     * @param N número primo grande
-     * @param g generador
-     * @param hash función hash
-     * @param identityMaxLength longitud máxima de identidad
-     * @param passwordMaxLength longitud máxima de contraseña
+     * For more information about how to encrypt with SPR6 for TC
+     * https://github.com/TrinityCore/TrinityCore/issues/25157
+     *
      */
     public ParamsEncrypt(int N_length_bits, BigInteger N, BigInteger g, String hash, int identityMaxLength,
                          int passwordMaxLength) {

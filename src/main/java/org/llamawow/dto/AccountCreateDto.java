@@ -1,6 +1,7 @@
 package org.llamawow.dto;
 
 import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.validator.constraints.*;
 
@@ -13,5 +14,6 @@ public class AccountCreateDto {
     @NotNull
     private String password;
     @NotNull
+    @Email
     private String email;
 }
