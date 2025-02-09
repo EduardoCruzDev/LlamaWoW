@@ -17,17 +17,41 @@
 <!-- Navbar Mejorado -->
 <nav class="bg-wood-brown fixed w-full top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a class="text-yellow-400 text-3xl font-bold" href="#">Llama WoW</a>
-        <div class="space-x-6">
-            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Home</a>
-            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Features</a>
-            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Community</a>
-            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Download</a>
+        <!-- Logo + Texto -->
+        <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="#">
+            <!-- Logo -->
+            <img src="images/llamalogo.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20">
+            <!-- Texto -->
+            <span>Llama WoW</span>
+        </a>
+
+        <!-- Menú para pantallas grandes -->
+        <div class="hidden md:flex space-x-6">
+            <a class="text-gray-200 hover:text-yellow-400 transition" href="/">Home</a>
+            <a class="text-gray-200 hover:text-yellow-400 transition" href="/downloads">Downloads</a>
+            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Ranking</a>
+            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Comunity</a>
             <a class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg shadow hover:bg-yellow-500 transition" href="/register">Play Now</a>
         </div>
+
+        <!-- Menú hamburguesa para pantallas pequeñas -->
+        <div class="md:hidden flex items-center">
+            <button id="hamburger-icon" class="text-gray-200 hover:text-yellow-400 focus:outline-none">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menú desplegable para dispositivos móviles -->
+    <div id="mobile-menu" class="md:hidden hidden bg-wood-brown text-gray-200 px-4 py-3 space-y-4">
+        <a class="block hover:text-yellow-400 transition" href="/">Home</a>
+        <a class="block hover:text-yellow-400 transition" href="/downloads">Downloads</a>
+        <a class="block hover:text-yellow-400 transition" href="#">Ranking</a>
+        <a class="block hover:text-yellow-400 transition" href="#">Comunity</a>
+        <a class="block bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg shadow hover:bg-yellow-500 transition" href="/register">Play Now</a>
     </div>
 </nav>
-
+<script th:src="@{/js/utiles.js}"></script>
 <!-- Hero Section -->
 <section class="bg-cover bg-center" style="background-image: url('https://bnetcmsus-a.akamaihd.net/cms/blog_header/wa/WAA4GIXAJY7Y1723817737372.png');">
     <div class="container mx-auto px-4 py-32 text-center">

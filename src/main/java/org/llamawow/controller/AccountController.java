@@ -25,13 +25,18 @@ public class AccountController {
         String clientIp = request.getRemoteAddr();
 
         accountService.create(createDto, clientIp);
-        return "redirect:/";
+        return "redirect:/downloads";
     }
 
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("register", new AccountCreateDto());
         return "register";
+    }
+
+    @GetMapping("/downloads")
+    public String downloads(Model model) {
+        return "downloads";
     }
 
     @GetMapping("/")
