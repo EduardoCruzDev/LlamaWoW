@@ -2,13 +2,20 @@ package org.llamawow.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.llamawow.dto.CharactersDto;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name="characters")
 @Data
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CharacterEntity implements Serializable {
 
     @Id
@@ -39,11 +46,26 @@ public class CharacterEntity implements Serializable {
     @Column(name = "money")
     private int money;
 
-    @Column(name = "playerBytes")
-    private int playerBytes;
+    @Column(name = "skin")
+    private int skin;
 
-    @Column(name = "playerBytes2")
-    private int playerBytes2;
+    @Column(name = "face")
+    private int face;
+
+    @Column(name = "hairStyle")
+    private int hairStyle;
+
+    @Column(name = "hairColor")
+    private int hairColor;
+
+    @Column(name = "facialStyle")
+    private int facialStyle;
+
+    @Column(name = "bankSlots")
+    private int bankSlots;
+
+    @Column(name = "restState")
+    private int restState;
 
     @Column(name = "playerFlags")
     private int playerFlags;
@@ -160,7 +182,7 @@ public class CharacterEntity implements Serializable {
     private long knownCurrencies;
 
     @Column(name = "watchedFaction")
-    private int watchedFaction;
+    private Long watchedFaction;
 
     @Column(name = "drunk")
     private byte drunk;
@@ -192,11 +214,11 @@ public class CharacterEntity implements Serializable {
     @Column(name = "latency")
     private int latency;
 
-    @Column(name = "speccount")
-    private byte specCount;
+    @Column(name = "talentGroupsCount")
+    private byte talentGroups;
 
-    @Column(name = "activesp")
-    private byte activeSp;
+    @Column(name = "activeTalentGroup")
+    private byte activeTalent;
 
     @Column(name = "exploredZones")
     private String exploredZones;
@@ -217,14 +239,21 @@ public class CharacterEntity implements Serializable {
     private byte grantableLevels;
 
     @Column(name = "deleteInfos_Account")
-    private int deleteInfosAccount;
+    private Integer deleteInfosAccount;
 
     @Column(name = "deleteInfos_Name")
     private String deleteInfosName;
 
     @Column(name = "deleteDate")
-    private int deleteDate;
+    private Integer deleteDate;
 
+
+    public CharacterEntity(CharactersDto datosConsultaCharacters){
+        this.name = datosConsultaCharacters.name();
+        this.race=datosConsultaCharacters.race();
+        this.totalKills=datosConsultaCharacters.totalKills();
+
+    }
 
 
 }

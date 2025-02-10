@@ -17,53 +17,77 @@
 <!-- Navbar Mejorado -->
 <nav class="bg-wood-brown fixed w-full top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <!-- Logo + Texto -->
         <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="#">
-            <!-- Logo -->
             <img src="images/llamalogo.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20">
-            <!-- Texto -->
             <span>Llama WoW</span>
         </a>
-
-        <!-- Menú para pantallas grandes -->
         <div class="hidden md:flex space-x-6">
             <a class="text-gray-200 hover:text-yellow-400 transition" href="/">Home</a>
             <a class="text-gray-200 hover:text-yellow-400 transition" href="/downloads">Downloads</a>
-            <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Ranking</a>
+            <a class="text-gray-200 hover:text-yellow-400 transition" href="/ranking">Ranking</a>
             <a class="text-gray-200 hover:text-yellow-400 transition" href="#">Comunity</a>
             <a class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg shadow hover:bg-yellow-500 transition" href="/register">Play Now</a>
         </div>
-
-        <!-- Menú hamburguesa para pantallas pequeñas -->
         <div class="md:hidden flex items-center">
             <button id="hamburger-icon" class="text-gray-200 hover:text-yellow-400 focus:outline-none">
                 <i class="fas fa-bars fa-lg"></i>
             </button>
         </div>
     </div>
-
-    <!-- Menú desplegable para dispositivos móviles -->
     <div id="mobile-menu" class="md:hidden hidden bg-wood-brown text-gray-200 px-4 py-3 space-y-4">
-        <a class="block hover:text-yellow-400 transition" href="/">Home</a>
-        <a class="block hover:text-yellow-400 transition" href="/downloads">Downloads</a>
-        <a class="block hover:text-yellow-400 transition" href="/ranking">Ranking</a>
+        <a class="block hover:text-yellow-400 transition" href="#">Home</a>
+        <a class="block hover:text-yellow-400 transition" href="#">Downloads</a>
+        <a class="block hover:text-yellow-400 transition" href="#">Ranking</a>
         <a class="block hover:text-yellow-400 transition" href="#">Comunity</a>
         <a class="block bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg shadow hover:bg-yellow-500 transition" href="/register">Play Now</a>
     </div>
 </nav>
 <script th:src="@{/js/utiles.js}"></script>
+
 <!-- Hero Section -->
 <section class="bg-cover bg-center" style="background-image: url('https://bnetcmsus-a.akamaihd.net/cms/blog_header/wa/WAA4GIXAJY7Y1723817737372.png');">
     <div class="container mx-auto px-4">
         <h2 class="text-2xl font-bold leading-tight text-white">How To Start</h2>
         <p> First of all you need our client</p>
         <p> We recommend to download by torrent</p>
-
     </div>
     <div class="container mx-auto px-4 py-32 text-center">
-
     </div>
 </section>
+
+<h1 class="text-4xl font-semibold text-center text-gray-500 mb-12 mt-10">Ranking de Personajes</h1>
+
+
+<!-- Contenedor para la imagen y la tabla -->
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 lg:gap-12 px-4 max-w-7xl mx-auto">
+
+    <!-- Imagen al costado izquierdo, ligeramente más pequeña -->
+    <img src="/images/trio_outro.png" alt="Imagen de Ranking" class="w-[480px] h-[480px] sm:w-[380px] sm:h-[380px] object-cover rounded-lg shadow-lg">
+
+    <!-- Tabla de Ranking -->
+    <div class="max-w-4xl mx-auto bg-wood-brown rounded-lg shadow-lg p-6 w-full">
+        <!-- Contenedor para el desplazamiento horizontal en pantallas pequeñas -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left text-gray-200 rounded-lg border-2 border-brown-800">
+                <thead class="bg-yellow-600 rounded-t-lg">
+                <tr>
+                    <th class="px-6 py-4 font-medium uppercase">Nombre</th>
+                    <th class="px-6 py-4 font-medium uppercase">Raza</th>
+                    <th class="px-6 py-4 font-medium uppercase">Total de Muertes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Iterar sobre la lista de personajes -->
+                <tr th:each="character : ${characters}" class="border-t border-gray-600 hover:bg-yellow-900">
+                    <td class="px-6 py-4" th:text="${character.name}"></td>
+                    <td class="px-6 py-4" th:text="${character.race}"></td>
+                    <td class="px-6 py-4" th:text="${character.totalKills}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 
@@ -81,5 +105,6 @@
         </div>
     </div>
 </footer>
+
 </body>
 </html>
