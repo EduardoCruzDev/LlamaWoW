@@ -1,6 +1,7 @@
 package org.llamawow.service.impl;
 
 import org.llamawow.model.ParamsEncrypt;
+import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -15,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
  *
  */
 
+@Service
 public class EncryptionService {
 
     public static byte[] computeVerifier(ParamsEncrypt params, byte[] salt, String username, String password) throws Exception {
