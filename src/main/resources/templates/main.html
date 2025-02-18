@@ -14,8 +14,10 @@
 </head>
 <body class="bg-wood-brown text-gray-200">
 
+<div class="container-wrapper">
+
 <!-- Navbar Mejorado -->
-<nav class="bg-wood-brown fixed w-full top-0 z-50 shadow-lg">
+<nav class="bg-wood-brown w-full top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
         <!-- Logo + Texto -->
         <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="#">
@@ -53,13 +55,13 @@
 </nav>
 <script th:src="@{/js/utiles.js}"></script>
 <!-- Hero Section -->
-<section class="bg-cover bg-center" style="background-image: url('https://bnetcmsus-a.akamaihd.net/cms/blog_header/wa/WAA4GIXAJY7Y1723817737372.png');">
+<section class="bg-cover bg-center" style="background-image: url('/images/world-warcraft-classic-wrath-lich-king-2678433.jpg');">
     <div class="container mx-auto px-4 py-32 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-yellow-400 mb-6">
             Welcome to Azeroth
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 mb-8">
-            Experience the ultimate private World of Warcraft server. Adventure, battle, and explore the realms of Azeroth.
+            Experience a retro World of Warcraft server. Adventure, battle, and find your own way.
         </p>
         <a href="/register" class="IronButton IronButton--primary">
             <span class="IronButton-inner">
@@ -131,7 +133,8 @@
 </div>
 
 <!-- Features Section -->
-<section id="features" class="bg-wood-brown py-20">
+<section id="features" class="bg-wood-brown py-20 bg-cover bg-center" style="background-image: url('/images/SCVKZC3QVGFW1594741716280.jpg');">
+
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-yellow-400 text-center mb-10">Features</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -141,8 +144,8 @@
                 <img src="https://www.hellscreamwow.com/application/themes/hellscream//assets/images/graphics/connect/create-account.webp"
                      alt="Custom Content"
                      class="mx-auto mb-4 w-20 h-20 rounded-lg object-cover">
-                <h3 class="text-2xl font-bold text-yellow-400">Custom Content</h3>
-                <p class="text-gray-300">Exclusive dungeons, zones, and quests tailored for our players.</p>
+                <h3 class="text-2xl font-bold text-yellow-400">Hardcore Mode</h3>
+                <p class="text-gray-300">Choose between a normal or hardcore experience.</p>
             </div>
 
             <!-- Feature 2 -->
@@ -150,8 +153,8 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkVZ2j_4KZnZxG7kT8yHuDjrQk-sb_EtHKBE1CqHH5Qlj34uLEpHFVJJvS8Hqwg3In__E&usqp=CAU"
                      alt="High Stability"
                      class="mx-auto mb-4 w-20 h-20 rounded-lg object-cover">
-                <h3 class="text-2xl font-bold text-yellow-400">High Server Stability</h3>
-                <p class="text-gray-300">Lag-free experience with minimal downtime and robust performance.</p>
+                <h3 class="text-2xl font-bold text-yellow-400">Blizzlike Experience</h3>
+                <p class="text-gray-300">Most of the experience is Blizzlike.</p>
             </div>
 
             <!-- Feature 3 -->
@@ -159,8 +162,8 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS_2GDIZP9dFjKnyERoxns_Vxa3C1-SXH7Ng&s"
                      alt="Community Focus"
                      class="mx-auto mb-4 w-20 h-20 rounded-lg object-cover">
-                <h3 class="text-2xl font-bold text-yellow-400">Community-Driven</h3>
-                <p class="text-gray-300">Active forums, Discord, and in-game events.</p>
+                <h3 class="text-2xl font-bold text-yellow-400">Content Working</h3>
+                <p class="text-gray-300">99% of the WOLTK is working properly.</p>
             </div>
 
         </div>
@@ -170,11 +173,10 @@
 <!-- Call to Action Section -->
 <section id="join" class="bg-wood-brown py-20 text-center">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-yellow-400 mb-6">Ready to Join the Battle?</h2>
-        <p class="text-lg text-gray-300 mb-8">Create your account, download the client, and dive into the world of
-            Azeroth today!</p>
+        <h2 class="text-4xl font-bold text-yellow-400 mb-6">Ready to follow an incredible Journey?</h2>
+        <p class="text-lg text-gray-300 mb-8">Create an account, download the client, and enjoy world of warcraft!</p>
         <a href="/register" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg shadow-lg hover:bg-yellow-500">
-            Create an Account
+            Register an Account
         </a>
     </div>
 </section>
@@ -193,5 +195,6 @@
         </div>
     </div>
 </footer>
+</div>
 </body>
 </html>

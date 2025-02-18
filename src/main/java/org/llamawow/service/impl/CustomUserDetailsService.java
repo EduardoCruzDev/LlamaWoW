@@ -5,7 +5,6 @@ package org.llamawow.service.impl;
 
 import org.llamawow.entity.AccountEntity;
 import org.llamawow.repository.auth.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

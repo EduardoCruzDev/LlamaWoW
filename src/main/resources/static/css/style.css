@@ -172,3 +172,23 @@ html:not(.touch) .IronButton:active::before {
 .text-lg {
   font-size: 1.125rem; /* Ajusta el tamaño según sea necesario */
 }
+
+
+body {
+  background: linear-gradient(to right, black 0%, #3b2e25 25%, #3b2e25 75%, black 100%);
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+.container-wrapper {
+  max-width:2200px;/* Puedes ajustarlo según el diseño */
+  margin: auto;
+  background-color: #180d09; /* Fondo de la página */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}

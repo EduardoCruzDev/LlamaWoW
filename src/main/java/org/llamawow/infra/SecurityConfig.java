@@ -1,7 +1,5 @@
 package org.llamawow.infra;
 
-
-
 import org.llamawow.repository.auth.AccountRepository;
 import org.llamawow.service.impl.CustomUserDetailsService;
 import org.llamawow.service.impl.EncryptionService;
@@ -28,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authz->
-                        authz.requestMatchers("/login","/register","/").permitAll()
+                        authz.requestMatchers("/login","/register","/","/downloads").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/ranking").permitAll()
                                 .requestMatchers("/images/**", "/css/**", "/js/**").permitAll()
                                 .requestMatchers("/swagger-ui/**","/swagger-ui/index.html", "/v3/api-docs/**").permitAll()
