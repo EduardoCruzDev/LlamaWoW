@@ -7,6 +7,10 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Controller
 public class AccountController {
     private final AccountService accountService;

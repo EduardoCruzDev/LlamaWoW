@@ -15,6 +15,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {

@@ -10,6 +10,10 @@ import org.llamawow.dto.CharactersDto;
 
 import java.io.Serializable;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Entity
 @Table(name="characters")
 @Data

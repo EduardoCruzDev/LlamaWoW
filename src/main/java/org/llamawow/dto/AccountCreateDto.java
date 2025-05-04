@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.validator.constraints.*;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
 
 @Getter
 @Setter

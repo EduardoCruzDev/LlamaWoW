@@ -1,4 +1,20 @@
 package org.llamawow.dto;
 
-public record LoginDto (String username, byte verifier){
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class LoginDto {
+
+        @NotNull
+        private String username;
+        @NotNull
+        private String password;
+
 }

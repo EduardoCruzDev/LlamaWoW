@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Repository
 public interface CharactersRepository extends JpaRepository<CharacterEntity, Long> {
     Optional<CharacterEntity> findByName (String name);

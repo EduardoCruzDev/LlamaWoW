@@ -10,6 +10,10 @@ import java.time.*;
 import java.util.Collection;
 import java.util.List;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Data
 @Entity
 @Table(name = "account")

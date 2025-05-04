@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Repository
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
     Optional<AccountEntity> findByUsername(String username);

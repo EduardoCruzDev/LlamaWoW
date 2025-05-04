@@ -10,6 +10,10 @@ import org.springframework.stereotype.*;
 
 import java.security.*;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Service
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;

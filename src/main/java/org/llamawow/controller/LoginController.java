@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
 
 @Controller
 public class LoginController {

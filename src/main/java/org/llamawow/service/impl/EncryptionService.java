@@ -16,6 +16,10 @@ import java.security.NoSuchAlgorithmException;
  *
  */
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Service
 public class EncryptionService {
 

@@ -5,6 +5,11 @@ import java.math.*;
 /**
  * Clase para cifrar la informacion sencible lo requiere el emulador trinity core
  */
+
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 public class ParamsEncrypt {
     public final int N_length_bits;       // Longitud de N en bits
     public final BigInteger N;             // Número primo grande

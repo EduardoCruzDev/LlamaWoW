@@ -4,6 +4,10 @@ import org.springframework.http.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

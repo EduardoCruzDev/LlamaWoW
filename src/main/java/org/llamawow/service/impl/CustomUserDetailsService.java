@@ -11,6 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -38,7 +42,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return User
                 .withUsername(account.getUsername())
-                .password("")  // No se usa la contraseña en texto claro porque ya la verificamos con el "verifier"
+                .password(account.getPassword())  // No se usa la contraseña en texto claro porque ya la verificamos con el "verifier"
                 .roles("USER")  // Asume roles según tu lógica
                 .build();
     }

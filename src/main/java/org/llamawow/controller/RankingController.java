@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Controller
 public class RankingController {
 
