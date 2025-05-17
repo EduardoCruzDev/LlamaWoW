@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Equipo de [[${characterName}]]</title>
+    <link rel="stylesheet" href="/css/equipment.css" />
+</head>
+<body>
+<div>
+<h1>Equipo de <span th:text="${characterName}">Personaje</span></h1>
+</div>
+
+
+<div class="equipment-container">
+
+    <!-- Imagen del personaje en el centro -->
+    <img th:src="@{${characterImageUrl}}" alt="Imagen del personaje" class="character-image" />
+
+    <!-- Recorrer las piezas de equipo -->
+    <div th:each="item,iterStat : ${equippedItems}"
+         th:class="'slot slot-' + ${iterStat.index}">
+
+        <div class="slot-container" title="Slot: [[${item.slot}]] - [[${item.itemName}]]">
+            <img th:src="@{'/images/items/' + ${item.itemId} + '.png'}" alt="Ítem" />
+            <div class="label" th:text="${item.slot} + ' - ' + ${item.itemName}"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

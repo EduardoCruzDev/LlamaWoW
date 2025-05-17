@@ -24,7 +24,8 @@ public class CharacterEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int guid;
+    @Column(name = "guid")
+    private Integer guid;
 
     @Column(name = "account")
     private int account;

@@ -13,5 +13,5 @@ import java.util.Optional;
 
 @Repository
 public interface CharactersRepository extends JpaRepository<CharacterEntity, Long> {
-    Optional<CharacterEntity> findByName (String name);
+    Optional<CharacterEntity> findByNameIgnoreCase (String name);
 }

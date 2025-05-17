@@ -36,7 +36,7 @@ public class CharactersServiceImpl implements CharactersService {
 
     @Override
     public Optional<CharactersDto> getCharactersByName(String name) {
-        return charactersRepository.findByName(name)
+        return charactersRepository.findByNameIgnoreCase(name)
                 .map(character -> new CharactersDto(character.getName(), character.getRace(), character.getTotalKills()));
     }
 }
