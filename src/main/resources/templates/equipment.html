@@ -1,30 +1,135 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Equipo de [[${characterName}]]</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armory - <span th:text="${characterName}">Personaje</span> - World of Warcraft</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/css/equipment.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
 </head>
 <body>
-<div>
-<h1>Equipo de <span th:text="${characterName}">Personaje</span></h1>
+<div class="wow-container">
+    <!-- Barra de navegación superior -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="#" class="blizzard-logo">
+                <img src="https://ext.same-assets.com/1039909910/3700483718.png" alt="Blizzard Logo" />
+            </a>
+            <a href="#" class="wow-logo">
+                <img src="https://ext.same-assets.com/1039909910/2502013826.png" alt="World of Warcraft" />
+            </a>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Información sobre el juego</a>
+                <a href="#" class="nav-link highlighted">NUEVO</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="search-icon">
+                <img src="https://ext.same-assets.com/1039909910/1350239513.png" alt="Buscar" />
+            </div>
+            <a href="#" class="account-btn">Cuenta</a>
+            <a href="#" class="gift-btn">Registro</a>
+            <a href="#" class="subscribe-btn">Descarga</a>
+        </div>
+    </header>
+
+    <!-- Información del personaje -->
+    <section class="character-header">
+        <div class="character-name">
+            <h1 th:text="${characterName}">Nombre del Personaje</h1>
+            <div class="character-achievements">
+                <span class="achievement-points">[[${achievementPoints}]]</span>
+                <span class="item-level">NIVEL DE OBJETO: [[${itemLevel}]]</span>
+            </div>
+            <div class="character-info" th:each="character : ${characters}">
+                <span th:text="${character.level}">50</span>
+                <span th:text="${character.race}">Raza</span>
+                <span th:text="${character.class}">Clase</span>
+                <span class="guild-name" th:text="'&#10094;' + ${guild} + '&#10095;'">Nombre del Clan</span>
+                <span th:text="${realm}">Servidor</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación del personaje -->
+    <nav class="character-nav">
+        <ul>
+            <li class="active"><a href="#">PERSONAJE</a></li>
+        </ul>
+    </nav>
+
+    <!-- Armadura y render -->
+    <main class="character-main">
+        <div class="character-armory">
+            <!-- Columna izquierda -->
+            <div class="items-column left-items">
+                <div th:each="item : ${equippedItems}"  class="item-slot" th:classappend="${item.slot}">
+                    <img th:src="@{'/images/items/' + ${item.itemId} + '.jpg'}" th:alt="${item.itemName}" />
+                    <span class="item-name" th:text="${item.itemName}">Nombre del Ítem</span>
+                </div>
+            </div>
+
+            <!-- Render del personaje en el centro -->
+            <div class="character-render">
+                <img th:src="@{${characterImageUrl}}" alt="Render del personaje" />
+                <div th:if="${weaponItem != null}" class="item-slot weapon" th:attr="data-item-level=${weaponItem.level}">
+                    <img th:src="@{'/images/items/' + ${weaponItem.itemId} + '.jpg'}" th:alt="${weaponItem.itemName}" />
+                    <span class="item-name" th:text="${weaponItem.itemName}">Nombre del arma</span>
+                </div>
+                <div class="generate-image-btn">
+                    <img src="https://ext.same-assets.com/1039909910/1947897714.png" alt="Camera" />
+                    <span>Generar imagen de personaje</span>
+                </div>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="items-column right-items">
+                <div th:each="item : ${equippedItems}" class="item-slot" th:classappend="${item.slot}">
+                    <img th:src="@{'/images/items/' + ${item.itemId} + '.jpg'}" th:alt="${item.itemName}" />
+                    <span class="item-name" th:text="${item.itemName}">Nombre del Ítem</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="character-stats">
+            <div class="stat-item health">
+                <img src="https://ext.same-assets.com/1039909910/2436410611.svg" alt="Salud" />
+                <span class="stat-value" th:text="${health}">15,776</span>
+                <span class="stat-name">Salud</span>
+            </div>
+            <div class="stat-item rage">
+                <img src="https://ext.same-assets.com/1039909910/3399358481.svg" alt="Ira" />
+                <span class="stat-value" th:text="${rage}">100</span>
+                <span class="stat-name">Ira</span>
+            </div>
+            <div class="stat-item strength">
+                <img src="https://ext.same-assets.com/1039909910/3836274044.svg" alt="Fuerza" />
+                <span class="stat-value" th:text="${strength}">638</span>
+                <span class="stat-name">Fuerza</span>
+            </div>
+        </div>
+    </main>
 </div>
 
-
-<div class="equipment-container">
-
-    <!-- Imagen del personaje en el centro -->
-    <img th:src="@{${characterImageUrl}}" alt="Imagen del personaje" class="character-image" />
-
-    <!-- Recorrer las piezas de equipo -->
-    <div th:each="item,iterStat : ${equippedItems}"
-         th:class="'slot slot-' + ${iterStat.index}">
-
-        <div class="slot-container" title="Slot: [[${item.slot}]] - [[${item.itemName}]]">
-            <img th:src="@{'/images/items/' + ${item.itemId} + '.png'}" alt="Ítem" />
-            <div class="label" th:text="${item.slot} + ' - ' + ${item.itemName}"></div>
+<!-- Footer -->
+<footer class="bg-wood-brown py-6">
+    <div class="container mx-auto px-4 text-center text-gray-400">
+        <p>&copy; 2025 Llama WoW Private Server. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                <i class="fab fa-facebook-f text-3xl"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-yellow-400">
+                <i class="fab fa-twitter text-3xl"></i>
+            </a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>
+
 

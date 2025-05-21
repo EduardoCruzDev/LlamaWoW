@@ -1,89 +1,789 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+/* Importar fuentes */
+@font-face {
+    font-family: 'WoW-Font';
+    src: url('https://ext.same-assets.com/1039909910/2824119346.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.equipment-container {
-    display: grid;
-    grid-template-columns: repeat(7, 80px);
-    grid-template-rows: repeat(7, 80px);
-    gap: 10px;
+/* Variables globales */
+:root {
+    --bg-dark: #0f0909;
+    --bg-darker: #0a0606;
+    --gold: #c09c75;
+    --brown: #663e2b;
+    --teal: #3fa398;
+    --dark-brown: #3c2018;
+    --dark-green: #364d46;
+    --blue: #39449c;
+    --red: #a32111;
+    --dark-blue: #242852;
+    --orange: #d2691e;
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'WoW-Font', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.wow-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: var(--bg-darker);
+    background-image: url('https://ext.same-assets.com/1039909910/1412994397.jpeg');
+    background-repeat: repeat;
+    background-position: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Barra de navegación superior */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(10, 6, 6, 0.95);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(192, 156, 117, 0.3);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.blizzard-logo img, .wow-logo img {
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.5rem;
     position: relative;
 }
 
-/* Imagen del personaje centrada */
-.character-image {
-    grid-column: 4 / 5;
-    grid-row: 4 / 5;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #333;
-    background: white;
-    z-index: 10;
-    justify-self: center;
-    align-self: center;
+.nav-link.highlighted {
+    color: var(--orange);
+    font-weight: bold;
 }
 
-/* Cada slot de equipo como cuadrado */
-.slot {
-    width: 70px;
-    height: 70px;
-    background: #fff;
-    border: 2px solid #666;
-    border-radius: 10px;
+.nav-link:hover {
+    color: var(--gold);
+}
+
+.search-icon img {
+    height: 20px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.account-btn, .gift-btn, .subscribe-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.account-btn {
+    color: var(--gold);
+}
+
+.gift-btn {
+    color: white;
+    background-color: var(--dark-green);
+}
+
+.subscribe-btn {
+    color: white;
+    background-color: var(--red);
+    font-weight: bold;
+}
+
+/* Sección de información del personaje */
+.character-header {
+    padding: 2rem 1rem;
+    background-color: rgba(10, 6, 6, 0.7);
+    border-bottom: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.character-name h1 {
+    color: var(--gold);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(192, 156, 117, 0.5);
+    letter-spacing: 2px;
+}
+
+.character-achievements {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 12px;
-    text-align: center;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    cursor: default;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Ajustar posiciones de slots alrededor del centro */
-.slot-0 { grid-column: 4; grid-row: 1; }
-.slot-1 { grid-column: 3; grid-row: 2; }
-.slot-2 { grid-column: 4; grid-row: 2; }
-.slot-3 { grid-column: 5; grid-row: 2; }
-.slot-4 { grid-column: 2; grid-row: 3; }
-.slot-5 { grid-column: 3; grid-row: 3; }
-.slot-6 { grid-column: 5; grid-row: 3; }
-.slot-7 { grid-column: 6; grid-row: 3; }
-.slot-8 { grid-column: 1; grid-row: 4; }
-.slot-9 { grid-column: 7; grid-row: 4; }
-.slot-10 { grid-column: 2; grid-row: 5; }
-.slot-11 { grid-column: 3; grid-row: 5; }
-.slot-12 { grid-column: 5; grid-row: 5; }
-.slot-13 { grid-column: 6; grid-row: 5; }
-.slot-14 { grid-column: 3; grid-row: 6; }
-.slot-15 { grid-column: 4; grid-row: 6; }
-.slot-16 { grid-column: 5; grid-row: 6; }
-.slot-17 { grid-column: 4; grid-row: 7; }
-.slot-18 { grid-column: 4; grid-row: 3; }
+.achievement-points {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 
-/* Imagen de ítem dentro del slot */
-.slot img {
-    max-width: 50px;
-    max-height: 50px;
+.item-level {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.character-info {
+    display: flex;
+    gap: 0.5rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.guild-name {
+    color: var(--gold);
+}
+
+/* Navegación de personaje */
+.character-nav {
+    background-color: var(--bg-darker);
+    border-bottom: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.character-nav ul {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1rem;
+}
+
+.character-nav li {
+    padding: 1rem;
+}
+
+.character-nav li a {
+    color: #aaa;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.character-nav li.active a {
+    color: var(--gold);
+}
+
+.character-nav li:hover a {
+    color: white;
+}
+
+/* Sección principal */
+.character-main {
+    padding: 2rem 1rem;
+}
+
+/* Sección de armadura */
+.character-armory {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.items-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 25%;
+}
+
+.character-render {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: url('https://ext.same-assets.com/1039909910/1412994397.jpeg') no-repeat center center;
+    background-size: cover;
+    min-height: 500px;
+    border-radius: 8px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+}
+
+.character-render img {
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+}
+
+.item-slot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(10, 6, 6, 0.5);
+    border-radius: 4px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.item-slot img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    color: var(--teal);
+}
+
+.item-slot::before {
+    content: attr(data-item-level);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(10, 6, 6, 0.8);
+    color: var(--gold);
+    padding: 0.1rem 0.3rem;
+    font-size: 0.7rem;
+    border-radius: 0 4px 0 4px;
+}
+
+.left-items .item-slot {
+    margin-right: 1rem;
+}
+
+.right-items .item-slot {
+    margin-left: 1rem;
+}
+
+.item-slot.weapon {
+    margin-top: 1rem;
+}
+
+.generate-image-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.generate-image-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Sección de estadísticas */
+.character-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(10, 6, 6, 0.5);
+    border-radius: 4px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.stat-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: white;
+}
+
+.stat-name {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Sección de especializaciones */
+.specialization-section {
+    margin-bottom: 2rem;
+}
+
+.specialization-section h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.specializations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.spec {
+    background-color: var(--bg-darker);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.spec.active {
+    border: 1px solid var(--gold);
+}
+
+.spec-header {
+    margin-bottom: 1rem;
+}
+
+.spec-status {
+    display: block;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.spec-name {
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.spec.active .spec-status {
+    color: var(--gold);
+}
+
+.spec-pvp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.spec-pvp span {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.pvp-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pvp-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(10, 6, 6, 0.8);
+    border: 1px solid var(--red);
+}
+
+.view-talents {
+    display: block;
+    color: var(--teal);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* Sección de mazmorras */
+.dungeons-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.view-history, .view-stats {
+    color: var(--teal);
+    font-size: 0.9rem;
+}
+
+.season-info {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.dungeons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.dungeon-card {
+    background-color: var(--bg-darker);
+    border-radius: 4px;
+    overflow: hidden;
+    height: 150px;
+}
+
+.dungeon-image {
+    height: 60%;
+    background-color: var(--dark-blue);
+}
+
+.dungeon-info {
+    padding: 0.5rem;
+}
+
+.dungeon-info h3 {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.dungeon-info p {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+/* Sección de bandas */
+.raids-section {
+    margin-bottom: 2rem;
+}
+
+.raids-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.raid-card {
+    display: flex;
+    background-color: var(--bg-darker);
+    border-radius: 4px;
+    overflow: hidden;
+    height: 200px;
+}
+
+.raid-image {
+    width: 40%;
+    overflow: hidden;
+}
+
+.raid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.raid-info {
+    padding: 1rem;
+    width: 60%;
+}
+
+.raid-info h3 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.raid-level {
+    display: block;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.raid-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.progress-type span {
+    color: #aaa;
+    font-size: 0.8rem;
+    width: 60px;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: rgba(10, 6, 6, 0.8);
+    border-radius: 5px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--teal);
     border-radius: 5px;
 }
 
-/* Nombre y slot debajo en pequeño */
-.slot .label {
-    position: absolute;
-    bottom: 2px;
-    width: 100%;
-    font-size: 10px;
-    color: #333;
+/* Sección de JcJ */
+.pvp-section {
+    margin-bottom: 2rem;
 }
 
-.slot-container {
-    position: relative;
-    width: 70px;
-    height: 70px;
+.pvp-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.honor-section {
+    width: 20%;
+    background-color: var(--bg-darker);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+}
+
+.honor-title {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.honor-level {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.honor-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.honor-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.honor-label {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.honor-value {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.pvp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 80%;
+}
+
+.pvp-card {
+    background-color: var(--bg-darker);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 156, 117, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pvp-card h3 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pvp-type {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.wow-footer {
+    background-color: var(--bg-darker);
+    border-top: 1px solid rgba(192, 156, 117, 0.3);
+    padding: 2rem 1rem;
+}
+
+.follow-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.follow-section h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(10, 6, 6, 0.8);
+    border: 1px solid var(--gold);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.blizzard-footer-logo img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.legal-text {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.legal-links a {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+.ratings img {
+    height: 60px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .specializations,
+    .dungeons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .character-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .character-armory {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .items-column {
+        width: 100%;
+        order: 2;
+    }
+
+    .character-render {
+        width: 100%;
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
+    .specializations,
+    .dungeons-grid,
+    .raids-grid,
+    .pvp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pvp-content {
+        flex-direction: column;
+    }
+
+    .honor-section,
+    .pvp-grid {
+        width: 100%;
+    }
+}
+
+/* Animaciones */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px rgba(192, 156, 117, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(192, 156, 117, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(192, 156, 117, 0.5);
+    }
+}
+
+.character-render img {
+    animation: glowing 2s infinite;
+}
+
+.item-slot:hover {
+    transform: translateY(-3px);
+    transition: transform 0.2s ease;
 }

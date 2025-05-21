@@ -6,6 +6,7 @@ package org.llamawow.dto;
 
 public record CharactersDto(
         String name,
+        int level,
         byte race,
         int totalKills)
 {

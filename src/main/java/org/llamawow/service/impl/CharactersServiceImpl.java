@@ -30,13 +30,13 @@ public class CharactersServiceImpl implements CharactersService {
     public List<CharactersDto> getAllCharacters() {
         return charactersRepository.findAll().stream()
                 .sorted(Comparator.comparing(CharacterEntity::getTotalKills).reversed()) // Ordenar de mayor a menor
-                .map(character -> new CharactersDto(character.getName(), character.getRace(), character.getTotalKills()))
+                .map(character -> new CharactersDto(character.getName(),character.getLevel(), character.getRace(), character.getTotalKills()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Optional<CharactersDto> getCharactersByName(String name) {
         return charactersRepository.findByNameIgnoreCase(name)
-                .map(character -> new CharactersDto(character.getName(), character.getRace(), character.getTotalKills()));
+                .map(character -> new CharactersDto(character.getName(),character.getLevel(), character.getRace(), character.getTotalKills()));
     }
 }
