@@ -35,6 +35,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET,"/ranking","/userpanel/**").permitAll()
                                 .requestMatchers("/images/**", "/css/**", "/js/**").permitAll()
                                 .requestMatchers("/swagger-ui/**","/swagger-ui/index.html", "/v3/api-docs/**").permitAll()
+                                .requestMatchers("/profile").authenticated()
                                 .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
@@ -45,8 +46,6 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(AccountRepository accountRepository, EncryptionService encryptionService) {
-        // Configura tu servicio de detalles de usuario
         return new CustomUserDetailsService(accountRepository, encryptionService);  // Servicio de autenticación personalizado
     }
 }
-

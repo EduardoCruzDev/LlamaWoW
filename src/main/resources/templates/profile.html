@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-
 <!-- //*********************************//
      //  Web Hecha por EduardoCruzDev   //
     //*********************************// -->
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Perfil de usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .bg-wood-brown {
-            background-color: #180d09; /* Color marrón especificado */
+            background-color: #180d09;
         }
         .btn-primary {
             background-color: #fbbf24;
@@ -25,44 +23,29 @@
     </style>
 </head>
 <body class="bg-wood-brown text-gray-200">
-
 <!-- Navbar Mejorado -->
 <nav class="bg-wood-brown fixed w-full top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <!-- Logo + Texto -->
         <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="/">
-            <!-- Logo -->
             <img src="images/llamalogo.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20">
-            <!-- Texto -->
             <span>Llama WoW</span>
         </a>
     </div>
 </nav>
-<script th:src="@{/js/utiles.js}"></script>
-<!-- Sección de Login -->
 <div class="flex justify-center items-center min-h-screen py-6">
-    <div class="w-full max-w-md bg-wood-brown text-white rounded-lg shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-center mb-6">Iniciar sesión</h2>
-
-        <!-- Formulario de Login -->
-        <form method="POST" th:action="@{/login}" th:object="${loginDto}">
-            <div class="mb-4">
-                <label for="username" class="block text-lg font-semibold">Nombre de usuario</label>
-                <input type="text" id="username" th:field="*{username}" required class="w-full mt-2 p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-yellow-500">
-            </div>
-            <div class="mb-6">
-                <label for="password" class="block text-lg font-semibold">Contraseña</label>
-                <input type="password" id="password" th:field="*{password}" required class="w-full mt-2 p-3 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-yellow-500">
-            </div>
-            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold">Entrar</button>
-            <div th:if="${paramError}" class="mt-4 text-red-400 text-center">
-                Credenciales inválidas. Intenta nuevamente.
-            </div>
-        </form>
+    <div class="w-full max-w-md bg-wood-brown text-white rounded-lg shadow-lg p-8 mt-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Perfil de usuario</h2>
+        <div class="mb-4">
+            <label class="block text-lg font-semibold">Nombre de usuario:</label>
+            <span class="block mt-2 p-3 rounded-lg border border-gray-600 bg-gray-800 text-white" th:text="${username}"></span>
+        </div>
+        <div class="mb-6">
+            <label class="block text-lg font-semibold">Correo electrónico:</label>
+            <span class="block mt-2 p-3 rounded-lg border border-gray-600 bg-gray-800 text-white" th:text="${email}"></span>
+        </div>
+        <a href="/logout" class="btn-primary w-full py-3 rounded-lg font-semibold block text-center">Cerrar sesión</a>
     </div>
 </div>
-
-<!-- Footer -->
 <footer class="bg-wood-brown py-6">
     <div class="container mx-auto px-4 text-center text-gray-400">
         <p>&copy; 2025 Llama WoW Private Server. Todos los derechos reservados.</p>
@@ -76,6 +59,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>

@@ -37,9 +37,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         AccountEntity account = accountRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        // Aquí puedes usar tu servicio de encriptación para verificar la contraseña
-        // Implementa la lógica para comparar el "verifier" y el "salt" en tu base de datos
-
         return User
                 .withUsername(account.getUsername())
                 .password(account.getPassword())  // No se usa la contraseña en texto claro porque ya la verificamos con el "verifier"

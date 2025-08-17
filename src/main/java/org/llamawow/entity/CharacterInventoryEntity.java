@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 
 import org.llamawow.dto.EquippedItem;
 
+//*********************************//
+//  Web Hecha por EduardoCruzDev   //
+//*********************************//
+
 @Entity
 @Getter
 @NoArgsConstructor
