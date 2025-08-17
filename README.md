@@ -1,6 +1,6 @@
 <h1>Third Release V 1.2.0</h1>
 <p>Pending!!!</p>
-<h3>Whats New for Second Release</h3>
+<h3>Whats New for Third Release</h3>
 <p>Now you can loggin and see your character</p>
 <p>Now you can donate for in game coins</p>
 
