@@ -1,6 +1,11 @@
-<h1>Second Release V 1.1.0</h1>
-
+<h1>Third Release V 1.2.0</h1>
 <p>Pending!!!</p>
+<h3>Whats New for Second Release</h3>
+<p>Now you can loggin and see your character</p>
+<p>Now you can donate for in game coins</p>
+
+
+<h1>Second Release V 1.1.0</h1>
 
 <h3>Whats New for Second Release</h3>
 
