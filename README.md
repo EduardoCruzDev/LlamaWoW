@@ -9,6 +9,13 @@
 <p>Added a Utorrent And Magnet Link in Downloads</p>
 <p>First Version of Armory for Characters</p>
 
+<img width="1432" height="1287" alt="Captura de pantalla 2025-08-17 114158" src="https://github.com/user-attachments/assets/f7163cc5-5643-438a-88ac-1df93ca3ddc4" />
+
+
+<img width="1301" height="1083" alt="Captura de pantalla 2025-08-17 114047" src="https://github.com/user-attachments/assets/b055f59b-3dc2-4c4c-85d2-d71368e78687" />
+
+
+
 
 <h1>First Release V 1.0.0</h1>
 Pagina Web de Registro y Ranking para Servidores de World Of Warcraft con Trinity Core </br>
