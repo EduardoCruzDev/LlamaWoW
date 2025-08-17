@@ -181,7 +181,25 @@ body {
   padding: 0;
 }
 
+/* Borde Negro para textos blancos */
 
+.text-stroke {
+  text-shadow:
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px  1px 0 #000,
+          1px  1px 0 #000;
+}
+
+/* Estilo para el contador */
+
+#countdown {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f7b10a;
+}
 
 
 

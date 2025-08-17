@@ -29,7 +29,7 @@ public class CharactersServiceImpl implements CharactersService {
     @Override
     public List<CharactersDto> getAllCharacters() {
         return charactersRepository.findAll().stream()
-                .sorted(Comparator.comparing(CharacterEntity::getTotalKills).reversed()) // Ordenar de mayor a menor
+                .sorted(Comparator.comparing(CharacterEntity::getTotalKills).reversed())// Ordenar de mayor a menor
                 .map(character -> new CharactersDto(character.getName(),character.getLevel(), character.getRace(), character.getTotalKills()))
                 .collect(Collectors.toList());
     }

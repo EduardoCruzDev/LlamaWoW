@@ -6,6 +6,8 @@ import org.llamawow.service.AccountService;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 //*********************************//
 //  Web Hecha por EduardoCruzDev   //
@@ -22,15 +24,18 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    public String saveStudent(
-            @ModelAttribute("register") AccountCreateDto createDto,
+    public String saveStudent(Model model,
+                              @ModelAttribute("register") AccountCreateDto createDto,
+                              RedirectAttributes redirectAttributes,
+                              HttpServletRequest request) {
 
-            HttpServletRequest request) {
         String clientIp = request.getRemoteAddr();
 
         accountService.create(createDto, clientIp);
+        redirectAttributes.addFlashAttribute("successMessage", "¡Registro exitoso!");
         return "redirect:/downloads";
     }
+
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -38,10 +43,7 @@ public class AccountController {
         return "register";
     }
 
-    @GetMapping("/downloads")
-    public String downloads(Model model) {
-        return "downloads";
-    }
+
 
     @GetMapping("/")
     public String home(Model model) {

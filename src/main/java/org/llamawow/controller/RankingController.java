@@ -19,7 +19,6 @@ public class RankingController {
 
     private final CharactersService charactersService;
 
-
     public RankingController(CharactersService charactersService) {
         this.charactersService = charactersService;
     }

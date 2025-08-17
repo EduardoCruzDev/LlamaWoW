@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<!-- //*********************************//
+     //  Web Hecha por EduardoCruzDev   //
+    //*********************************// -->
+
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
@@ -10,19 +15,18 @@
     <link rel="stylesheet" href="/css/reset.css" />
 </head>
 <body>
+<script th:src="@{/js/utiles.js}"></script>
+
 <div class="wow-container">
     <!-- Barra de navegación superior -->
     <header class="top-nav">
         <div class="nav-left">
-            <a href="#" class="blizzard-logo">
-                <img src="https://ext.same-assets.com/1039909910/3700483718.png" alt="Blizzard Logo" />
-            </a>
-            <a href="#" class="wow-logo">
-                <img src="https://ext.same-assets.com/1039909910/2502013826.png" alt="World of Warcraft" />
+            <a href="/" class="blizzard-logo">
+                <img src="/images/llamalogo.png" alt="Blizzard Logo" />
             </a>
             <div class="nav-links">
-                <a href="#" class="nav-link">Información sobre el juego</a>
-                <a href="#" class="nav-link highlighted">NUEVO</a>
+                <a href="#" class="nav-link">LlamaWoW</a>
+                <a href="#" class="nav-link highlighted">ARMORY</a>
             </div>
         </div>
         <div class="nav-right">
@@ -30,8 +34,8 @@
                 <img src="https://ext.same-assets.com/1039909910/1350239513.png" alt="Buscar" />
             </div>
             <a href="#" class="account-btn">Cuenta</a>
-            <a href="#" class="gift-btn">Registro</a>
-            <a href="#" class="subscribe-btn">Descarga</a>
+            <a href="/register" class="gift-btn">Registro</a>
+            <a href="/downloads" class="subscribe-btn">Descarga</a>
         </div>
     </header>
 
@@ -117,7 +121,7 @@
 <!-- Footer -->
 <footer class="bg-wood-brown py-6">
     <div class="container mx-auto px-4 text-center text-gray-400">
-        <p>&copy; 2025 Llama WoW Private Server. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Llama WoW Private Server. All rights reserved.</p>
         <div class="flex justify-center space-x-4 mt-4">
             <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-yellow-400">
                 <i class="fab fa-facebook-f text-3xl"></i>

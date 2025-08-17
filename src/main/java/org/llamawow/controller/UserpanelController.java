@@ -61,7 +61,7 @@ public class UserpanelController {
 
             model.addAttribute("characterName", name);
             model.addAttribute("equippedItems", items);
-
+            model.addAttribute("characterImageUrl", "/images/mi_personaje.jpg");
 
             return "equipment";
         } else {

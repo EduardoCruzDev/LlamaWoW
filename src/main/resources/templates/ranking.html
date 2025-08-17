@@ -23,7 +23,7 @@
     <nav class="bg-wood-brown w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- Logo + Texto -->
-            <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="#">
+            <a class="flex items-center space-x-2 text-yellow-400 text-3xl font-bold" href="/">
                 <!-- Logo -->
                 <img src="images/llamalogo.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20">
                 <!-- Texto -->
@@ -69,18 +69,27 @@
             <table class="min-w-full text-sm text-left text-gray-200 rounded-lg border-2 border-brown-800">
                 <thead class="bg-yellow-600 rounded-t-lg">
                 <tr>
-                    <th class="px-6 py-4 font-medium uppercase">Nombre</th>
-                    <th class="px-6 py-4 font-medium uppercase">Raza</th>
-                    <th class="px-6 py-4 font-medium uppercase">Total de Muertes</th>
+                    <th class="px-6 py-4 font-medium uppercase">Name</th>
+                    <th class="px-6 py-4 font-medium uppercase">Race</th>
+                    <th class="px-6 py-4 font-medium uppercase">Total Kills</th>
+                    <th class="px-6 py-4 font-medium uppercase">Details</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- Iterar sobre la lista de personajes -->
                 <tr th:each="character : ${characters}" class="border-t border-gray-600 hover:bg-yellow-900">
                     <td class="px-6 py-4" th:text="${character.name}"></td>
-                    <td class="px-6 py-4" th:text="${character.race}"></td>
+                    <td class="px-6 py-4">
+                        <img th:src="@{'/images/races/' + ${character.race} + '-0.gif'}" alt="Race Image" style="height: 25px;" />
+                    </td>
                     <td class="px-6 py-4" th:text="${character.totalKills}"></td>
+                    <td class="px-6 py-4">
+                        <a th:href="@{'/userpanel/character/' + ${character.name} + '/equipment'}">
+                            <img th:src="@{/images/lupa.jpg}" alt="View Details" style="height: 25px;" />
+                        </a>
+                    </td>
                 </tr>
+
                 </tbody>
             </table>
         </div>
